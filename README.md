@@ -1,6 +1,5 @@
 # Smart Apps Angular Test
 ![Alt text for the image](./src/assets/Screenshot1.png)
-![Alt text for the image](./src/assets/Screenshot2.png)
 ![Alt text for the image](./src/assets/Screenshot3.png)
 
 This project is a combined assignment focusing on two main functionalities:
