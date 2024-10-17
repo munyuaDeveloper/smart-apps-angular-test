@@ -8,6 +8,16 @@ export const routes: Routes = [
     redirectTo: 'posts'
   },
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./auth/login/login.component').then((C) => C.LoginComponent),
+  },
+  {
+    path: 'signup',
+    loadComponent: () =>
+      import('./auth/register/register.component').then((C) => C.RegisterComponent),
+  },
+  {
     path: 'posts',
     loadComponent: () =>
       import('./pages/home/home.component').then((C) => C.HomeComponent),

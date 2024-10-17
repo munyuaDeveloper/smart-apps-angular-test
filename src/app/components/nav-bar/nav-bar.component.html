@@ -2,7 +2,7 @@
 
 <mat-toolbar color="primary" fxLayout.gt-md="space-between center">
   <div fxShow="true" fxHide.gt-sm="true">
-    <button  mat-icon-button (click)="openSideMenu(isCollapsed)">
+    <button mat-icon-button (click)="openSideMenu(isCollapsed)">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
@@ -11,25 +11,21 @@
     <span>Smart Applications Test</span>
   </a>
   <span class="spacer"></span>
-  
 
-  <div
-    fxLayout="row"
-    fxShow="true"
-    fxHide.lt-md="true"
-  >
+  <div fxLayout="row" fxShow="true" fxHide.lt-md="true">
     <div class="loggedin_links" *ngIf="auth.user$ | async as user">
-      <a >
+      <a>
         <img [src]="user.picture" class="profile_pic" />
       </a>
       <a mat-button routerLink="/admin">Dashboard</a>
     </div>
   </div>
   <div class="loggedin_links">
-  
-    <a *ngIf="auth.user$ | async as user" mat-button (click)="logout()">Logout</a>
-    <ng-container *ngIf="!(auth.isAuthenticated$ | async)">
-      <a mat-button (click)="loginWithRedirect()">Login</a>
+    <a *ngIf="auth.user$ | async as user" mat-button (click)="logout()"
+      >Logout</a
+    >
+    <ng-container *ngIf="!(auth.user$ | async)">
+      <a mat-button routerLink="/login">Login</a>
     </ng-container>
   </div>
 </mat-toolbar>

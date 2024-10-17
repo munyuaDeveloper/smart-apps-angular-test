@@ -1,0 +1,61 @@
+<div class="container">
+  <mat-card class="registration_card">
+    <h2>Create an Account</h2>
+    <form (submit)="registerUser()" class="register_form" [formGroup]="registerUserForm">
+      <mat-form-field class="register-full-width">
+        <mat-label>Username</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="username"
+          placeholder="Enter username"
+        />
+        <mat-error
+          *ngIf="registerUserForm.controls['username'].dirty && registerUserForm.controls['username'].errors?.['required']"
+        >
+          Username is required!
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="register-full-width">
+        <mat-label>Email</mat-label>
+        <input
+          type="text"
+          matInput
+          formControlName="email"
+          placeholder="Enter email"
+        />
+        <mat-error
+          *ngIf="registerUserForm.controls['email'].dirty && (registerUserForm.controls['email'].errors?.['required'] || registerUserForm.controls['email'].errors?.['email'])" 
+        >
+          Enter a valid email
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="register-full-width">
+        <mat-label>Password</mat-label>
+        <input
+          type="password"
+          matInput
+          formControlName="password"
+          placeholder="Enter password"
+        />
+        <mat-error
+          *ngIf="registerUserForm.controls['password'].dirty && registerUserForm.controls['password'].errors?.['required']"
+        >
+          User password is required!
+        </mat-error>
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        class="submit_btn"
+        [disabled]="registerUserForm.invalid"
+      >
+        Register
+      </button>
+    </form>
+    <a routerLink="/signup" class="login_link">You have an account? Login</a>
+  </mat-card>
+</div>

@@ -12,7 +12,7 @@
     >
       <div fxLayout="column" class="sidenav_links">
         <a mat-button routerLink="/">Home</a>
-        <a *ngIf="auth.isAuthenticated$ | async" mat-button routerLink="/admin">Dashboard</a>
+        <a *ngIf="auth.user$ | async" mat-button routerLink="/admin">Dashboard</a>
       </div>
     </mat-sidenav>
     <mat-sidenav-content fxFlexFill class="main_content">

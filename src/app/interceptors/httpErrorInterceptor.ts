@@ -9,12 +9,13 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HttpErrorInterceptor implements HttpInterceptor {
-  constructor(private _toastService: ToastrService) {}
+  constructor(private _toastService: ToastrService, private _authService: AuthService) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -23,7 +24,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((error: HttpErrorResponse) => {
         let errorMessage = 'An unknown error occurred';
-
         if (
           typeof window !== 'undefined' &&
           'ErrorEvent' in window &&
@@ -37,6 +37,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
               errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
               break;
             case 401:
+                // this._authService.refreshToken()
               errorMessage = `Error Code: ${error.status}\nMessage: Your not authorized to perform this action`;
               break;
             case 403:

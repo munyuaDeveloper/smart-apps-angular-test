@@ -1,13 +1,13 @@
-import { Component, inject, Inject, OnInit } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
-import { AsyncPipe, CommonModule, DOCUMENT, NgIf } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Component, inject, Inject } from '@angular/core';
+import { CommonModule, DOCUMENT } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { SharedService } from '../../services/shared.service';
 import { tap } from 'rxjs';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -26,6 +26,7 @@ import { tap } from 'rxjs';
 export class NavBarComponent {
   public auth = inject(AuthService)
   public sharedService = inject(SharedService)
+  private router = inject(Router)
   
   isCollapsed = true;
   isOpen$ = this.sharedService.openSideMenu$.pipe(
@@ -36,19 +37,24 @@ export class NavBarComponent {
     @Inject(DOCUMENT) private doc: Document
   ) {}
 
-  loginWithRedirect() {
-    this.auth.loginWithRedirect(
-      {
-        appState: {
-          target: '/admin',
-          useRefreshTokens: true,
-        },
-      }
-    );
-  }
+  // loginWithRedirect() {
+  //   this.auth.loginWithRedirect(
+  //     {
+  //       appState: {
+  //         target: '/admin',
+  //         useRefreshTokens: true,
+  //       },
+  //     }
+  //   );
+  // }
 
-  logout() {
-    this.auth.logout({ logoutParams: { returnTo: this.doc.location.origin } });
+  // logout() {
+  //   this.auth.logout({ logoutParams: { returnTo: this.doc.location.origin } });
+  // }
+
+  logout(){
+    this.auth.logout()
+    this.router.navigate(['/'])
   }
 
   openSideMenu(state: boolean){

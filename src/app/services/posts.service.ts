@@ -7,7 +7,7 @@ import { PostInterface } from '../models/Post.Interface';
   providedIn: 'root'
 })
 export class PostsService {
-  baseUrl = 'https://jsonplaceholder.typicode.com/posts'
+  baseUrl = 'https://jsonplaceholder.typicode.com/postss'
 
   constructor(private _httpClient: HttpClient) { }
 
