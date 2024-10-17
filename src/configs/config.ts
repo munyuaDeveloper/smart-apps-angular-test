@@ -1,6 +1,6 @@
 export const config = {
-    domain: '',
-    clientId: '',
+    domain: 'dev-cb4kftjg8tc3il4n.us.auth0.com',
+    clientId: 'Kiuhp3QvUnqzxrBn4itzakUVZ7hornT4',
     authorizationParams: {
       audience: '',
     },
