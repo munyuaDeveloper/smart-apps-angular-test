@@ -1,6 +1,6 @@
 export const config = {
-    domain: 'ADD_YOUR_DOMAIN',
-    clientId: 'ADD_YOUR_CLIENT_ID',
+    domain: '',
+    clientId: '',
     authorizationParams: {
       audience: '',
     },

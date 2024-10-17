@@ -1,4 +1,7 @@
 # Smart Apps Angular Test
+![Alt text for the image](./src/assets/Screenshot1.png)
+![Alt text for the image](./src/assets/Screenshot2.png)
+![Alt text for the image](./src/assets/Screenshot3.png)
 
 This project is a combined assignment focusing on two main functionalities:
 1. **User Registration and Authentication using Auth0 API**: Implementing a secure authentication system with user registration and login forms.
