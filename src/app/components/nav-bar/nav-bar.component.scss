@@ -1,0 +1,13 @@
+.spacer {
+    flex: 1 1 auto;
+  }
+  .profile_pic{
+    height: 40px;
+    border-radius: 100%;
+    margin-top: 10px;
+  }
+  .loggedin_links{
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+  }

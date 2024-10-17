@@ -1,0 +1,14 @@
+.post_details_card {
+    width: 75% !important;
+    background-color: white;
+    margin: 50px auto;
+    cursor: pointer;
+    padding: 20px;
+    min-height: 40vh;
+
+    .title{
+        font-size: 28px;
+        font-weight: 500;
+        margin-left: 20px;
+    }
+}

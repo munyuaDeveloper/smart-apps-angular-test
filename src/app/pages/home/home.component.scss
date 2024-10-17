@@ -1,0 +1,31 @@
+mat-card {
+    width: 30% !important;
+    background-color: white;
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    margin: 50px auto;
+
+    .title {
+        margin-left: 30px;
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    .container_posts {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+    .card_buttons{
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        flex: 1;
+        padding: 20px;
+    }
+}

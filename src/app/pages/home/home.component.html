@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="title">All Posts</h1>
+  <div class="container_posts" fxLayout="row" fxLayoutGap="10px" fxLayoutAlign="start stretch">
+      <mat-card [routerLink]="['/posts', post.id]" *ngFor="let post of posts$ | async as posts" fxFlex="25">
+        <mat-card-header>
+          <mat-card-title>{{ post.title | titlecase }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>{{ post.body }}</p>
+        </mat-card-content>
+        <mat-card-footer class="card_buttons">
+          <button mat-flat-button color="primary">View More</button>
+        </mat-card-footer>
+      </mat-card>
+  </div>
+</div>

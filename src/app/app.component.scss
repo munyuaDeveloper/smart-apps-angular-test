@@ -1,0 +1,25 @@
+.wrapper{
+    overflow: hidden !important;
+}
+.main_content{
+    background-color: rgb(245, 248, 248);
+    min-height: 100% !important;
+    overflow-y: auto;
+    color: black;
+}
+.sidenav{
+    min-width: 300px;
+    min-height: 100vh;
+    .sidenav_links{
+        margin-top: 50px;
+
+        a{
+            padding: 8px 40px;
+            margin-bottom: 10px;
+        }
+        a:hover{
+            background-color: rgba(128, 180, 232, 0.543);
+            cursor: pointer;
+        }
+    }
+}

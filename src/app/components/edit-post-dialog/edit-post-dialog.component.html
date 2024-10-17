@@ -1,0 +1,39 @@
+<div class="dialog">
+  <h4>Edit Post</h4>
+
+  <form class="example-form" [formGroup]="postForm">
+    <mat-form-field class="example-full-width">
+      <mat-label>Post Title</mat-label>
+      <input
+        type="text"
+        matInput
+        formControlName="title"
+        placeholder="Post Title"
+      />
+      <mat-error *ngIf="postForm.controls['title'].dirty && postForm.controls['title'].errors?.['required']">
+        Post title is required!
+      </mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width">
+      <mat-label>Post Body</mat-label>
+      <textarea
+        matInput
+        placeholder="Enter post body"
+        formControlName="body"
+      ></textarea>
+      <mat-error *ngIf="postForm.controls['body'].dirty && postForm.controls['body'].errors?.['required']">
+        Post body is required
+      </mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="closeDialog()"
+      [disabled]="postForm.invalid"
+    >
+      Save
+    </button>
+  </form>
+</div>

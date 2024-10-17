@@ -1,0 +1,11 @@
+.dialog{
+    min-width: 500px;
+    padding: 20px;
+
+    mat-form-field{
+        width: 100%;
+    }
+    mat-error{
+        margin-bottom: 5px !important;
+    }
+}

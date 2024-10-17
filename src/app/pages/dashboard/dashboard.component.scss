@@ -1,0 +1,35 @@
+.main_content{
+    width: 90%;
+    margin: 50px auto;
+    .button_wrapper{
+        display: flex;
+        justify-content: end;
+        margin: 20px;
+        .create_btn{
+            padding: 10px;
+        }
+    }
+    table{
+        padding: 15px;
+        th{
+            font-weight: bold;
+            font-size: 18px;
+        }
+        td{
+            padding: 10px;
+        }
+        .actions{
+            display: flex;
+            gap: 20px;
+            button{
+                min-width: 100px;
+                padding: 5;
+            }
+            .delete_btn{
+                background-color: rgb(243, 136, 136);
+                color: white;
+            }
+        }
+        
+    }
+}
