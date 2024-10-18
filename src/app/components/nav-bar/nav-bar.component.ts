@@ -1,5 +1,5 @@
-import { Component, inject, Inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -32,25 +32,6 @@ export class NavBarComponent {
   isOpen$ = this.sharedService.openSideMenu$.pipe(
     tap((res)=> this.isCollapsed = !res)
   )
-
-  constructor(
-    @Inject(DOCUMENT) private doc: Document
-  ) {}
-
-  // loginWithRedirect() {
-  //   this.auth.loginWithRedirect(
-  //     {
-  //       appState: {
-  //         target: '/admin',
-  //         useRefreshTokens: true,
-  //       },
-  //     }
-  //   );
-  // }
-
-  // logout() {
-  //   this.auth.logout({ logoutParams: { returnTo: this.doc.location.origin } });
-  // }
 
   logout(){
     this.auth.logout()

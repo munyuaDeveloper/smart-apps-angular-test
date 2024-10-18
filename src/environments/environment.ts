@@ -4,7 +4,6 @@ const { domain, clientId, appUri, useRefreshTokens, cacheLocation } =
   config as {
     domain: string;
     clientId: string;
-    apiUri: string;
     appUri: string;
     useRefreshTokens: boolean;
     cacheLocation: any;

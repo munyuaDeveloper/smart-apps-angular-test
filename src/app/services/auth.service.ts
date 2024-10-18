@@ -17,6 +17,8 @@ export class AuthService {
   private clientId = environment.auth.clientId;
   private apiUrl = `https://${this.auth0Domain}`;
 
+
+
   user$ = new BehaviorSubject<UserInterface | null>(null);
 
   constructor(private http: HttpClient, private auth0: Auth0) {}
@@ -50,7 +52,7 @@ export class AuthService {
     if (typeof window !== 'undefined' && window.localStorage) {
       token = localStorage.getItem('id_token');
     }
-    
+
     if (token) {
       const decoded = jwtDecode<any>(token);
       this.user$.next(decoded);
@@ -75,8 +77,8 @@ export class AuthService {
   // Set tokens to localStorage
   setToken(access_token: string, id_token: string) {
     if (typeof window !== 'undefined' && window.localStorage) {
-    localStorage.setItem('access_token', access_token);
-    localStorage.setItem('id_token', id_token);
+      localStorage.setItem('access_token', access_token);
+      localStorage.setItem('id_token', id_token);
     }
     this.getUserDetails();
   }
@@ -87,18 +89,21 @@ export class AuthService {
     return !!token;
   }
 
+  // refresh token
   refreshToken(): Observable<any> {
     let refreshToken = null;
-    lastValueFrom(this.auth0.getAccessTokenSilently().pipe(
-      tap((res: any)=> refreshToken = res?.refresh_token)
-    ));
-  
+    lastValueFrom(
+      this.auth0
+        .getAccessTokenSilently()
+        .pipe(tap((res: any) => (refreshToken = res?.refresh_token)))
+    );
+
     const body = {
       grant_type: 'refresh_token',
       client_id: this.clientId,
       refresh_token: refreshToken,
     };
-  
+
     return this.http.post<any>(`${this.apiUrl}/oauth/token`, body).pipe(
       map((response: any) => {
         // Store the new access token and refresh token
@@ -110,5 +115,22 @@ export class AuthService {
       })
     );
   }
-  
+
+
+  // Using SDK Integration (Using @auth0/auth0-angular)
+
+  // login
+  loginWithRedirect() {
+    this.auth0.loginWithRedirect({
+      appState: {
+        target: '/admin',
+        useRefreshTokens: true,
+      },
+    });
+  }
+
+  // logout
+  logoutWithAuth0() {
+    this.auth0.logout({ logoutParams: { returnTo: environment.auth.authorizationParams.redirect_uri}});
+  }
 }
